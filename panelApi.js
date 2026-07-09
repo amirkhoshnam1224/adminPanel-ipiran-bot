@@ -40,5 +40,8 @@ module.exports = {
   getHealth: () => axios.get(`${PANEL_URL}/api/health`).then((r) => r.data),
   getGroups: () => api.get('/groups').then((r) => r.data),
   getPlans: () => api.get('/plans').then((r) => r.data),
+  getNextUsername: () => api.get(`/settings/next-username?t=${Date.now()}`).then((r) => r.data),
   createUser: (payload) => api.post('/users', payload).then((r) => r.data),
+  getUserDetail: (name) => api.get(`/users/${name}/detail`).then((r) => r.data),
+  getUserUsage: (name) => api.get(`/users/${name}/usage`).then((r) => r.data),
 };
